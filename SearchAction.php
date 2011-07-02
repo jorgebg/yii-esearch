@@ -61,6 +61,7 @@ class SearchAction extends CAction {
 	protected $_dataProvider;
 	protected $_view;
 	protected $_q;
+	protected $_qsw;
 
 	public function getStopWords() {
 		if (!$this->_stopWords)
@@ -124,7 +125,7 @@ class SearchAction extends CAction {
 						$attribute = ($criteria->alias ? $criteria->alias : 't') . '.' . $attribute;
 					foreach ($searched as $n => $searchterm) {
 						$searchtermTag = CDbCriteria::PARAM_PREFIX . $n;
-						$orders[] = $weight . '*(length(' . $attribute . ')-length(replace(' . $attribute . ',' . $searchtermTag . ',"")))/length(' . $searchtermTag . ')';
+						$orders[] = $weight . '*(length(' . $attribute . ')-length(replace(' . $attribute . ',' . $searchtermTag . ',\'\')))/length(' . $searchtermTag . ')';
 						$weight--;
 					}
 				}
