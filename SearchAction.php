@@ -177,7 +177,7 @@ class SearchAction extends CAction {
 	}
 
 	public function getQuery() {
-		return $_REQUEST[$this->queryParameter];
+		return isset($_REQUEST[$this->queryParameter]) ? $_REQUEST[$this->queryParameter] : null;
 	}
 
 	protected function getSearched($stopWords=false) {
