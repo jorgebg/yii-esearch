@@ -124,7 +124,7 @@ class SearchAction extends CAction {
 					if (strpos($attribute, '.') === false)
 						$attribute = ($criteria->alias ? $criteria->alias : 't') . '.' . $attribute;
 					foreach ($searched as $n => $searchterm) {
-						$searchtermTag = CDbCriteria::PARAM_PREFIX . $n;
+						$searchtermTag = array_search('%'.$searchterm.'%', $criteria->params);
 						$orders[] = $weight . '*(length(' . $attribute . ')-length(replace(' . $attribute . ',' . $searchtermTag . ',\'\')))/length(' . $searchtermTag . ')';
 						$weight--;
 					}
