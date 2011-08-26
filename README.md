@@ -48,3 +48,6 @@ Documentation
         'ext.esearch.*',
 ),
 ~~~
+
+
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jorgebg&url=https://github.com/jorgebg/yii-esearch&title=yii-esearch&language=en_GB&tags=github&category=software) 
