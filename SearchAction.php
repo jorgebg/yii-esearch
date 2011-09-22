@@ -36,6 +36,7 @@
  */
 class SearchAction extends CAction {
 
+        public $layout;
 	public $view;
 	public $resultView;
 	public $viewPath;
@@ -88,6 +89,9 @@ class SearchAction extends CAction {
 			$this->view = 'results';
 			$this->resultView = '_result';
 		}
+                
+                if($this->layout !== null)
+                        Yii::app()->getController()->layout = $this->layout;
 
 		if ($this->titleAttribute === null) {
 			$this->titleAttribute = reset($this->attributes);
@@ -234,3 +238,4 @@ class SearchAction extends CAction {
 	}
 
 }
+
