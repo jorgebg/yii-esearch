@@ -36,11 +36,12 @@
  */
 class SearchAction extends CAction {
 
-        public $layout;
+	public $layout;
 	public $view;
 	public $resultView;
 	public $viewPath;
 	public $model;
+	public $with = array();
 	public $attributes = array('title', 'tags', 'content');
 	public $titleAttribute;
 	public $showAttributes;
@@ -108,7 +109,7 @@ class SearchAction extends CAction {
 		$searched = $this->getSearched(true);
 		if ($searched) {
 			$criteria = $this->getCriteria();
-			$conditions = new CDbCriteria();
+			$conditions = new CDbCriteria(array('with'=>$this->with));
 			foreach ($this->attributes as $attribute) {
 				if (strpos($attribute, '.') === false)
 					$attribute = ($criteria->alias ? $criteria->alias : 't') . '.' . $attribute;
