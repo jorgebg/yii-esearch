@@ -10,6 +10,7 @@ Documentation
 ###Requirements
 * Yii 1.0 or above
 * MySQL 5.0 or above
+* PHP 5.2
 
 ###Installation
 * Extract the release file under `protected/extensions/esearch`
