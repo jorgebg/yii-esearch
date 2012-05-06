@@ -47,7 +47,7 @@ class SearchAction extends CAction {
 	public $showAttributes;
 	public $urlAttribute;
 	public $urlCallback;
-	public $urlExpression = 'array(lcfirst(get_class($result))."/view", "id"=>$result->id)';
+	public $urlExpression = 'array(strtolower(substr(get_class($result),0,1)).substr(get_class($result),1)."/view", "id"=>$result->id)';
 	public $queryParameter = 'q';
 	public $highlightTag = 'strong';
 	public $cssFile;
